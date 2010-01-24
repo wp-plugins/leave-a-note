@@ -3,7 +3,7 @@
 Plugin Name: Leave-a-Note Visual Commenting
 Plugin URI: http://josephrogermoore.com/leaveanote
 Version: 1.0
-Author: <a href="http://josephrogermoore.com">Joseph Moore</a>
+Author: Joseph Moore
 Description: A visual commenting system for Wordpress blogs
 */
 
