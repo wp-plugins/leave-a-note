@@ -145,9 +145,9 @@ This allows the plugin to use messages that existed before the plugin was instal
 			wp_enqueue_script('jquery-ui');
 			wp_enqueue_script('jquery-ui-core');
 			wp_enqueue_script('jquery-ui-draggable');
-			wp_enqueue_script('moved', WP_PLUGIN_URL . '/leaveanote/js/moved.js', array('jquery', 'jquery-ui-core', 'jquery-ui-draggable'));
-			print '<script type="text/javascript">var pluginRoot = "' . $blogurl . '/wp-content/plugins/leaveanote";</script>';
-			print '<link href="' . $blogurl . '/wp-content/plugins/leaveanote/css/leaveanote.css" rel="stylesheet" type="text/css" media="screen" />';
+			wp_enqueue_script('moved', WP_PLUGIN_URL . '/leave-a-note/js/moved.js', array('jquery', 'jquery-ui-core', 'jquery-ui-draggable'));
+			print '<script type="text/javascript">var pluginRoot = "' . $blogurl . '/wp-content/plugins/leave-a-note";</script>';
+			print '<link href="' . $blogurl . '/wp-content/plugins/leave-a-note/css/leaveanote.css" rel="stylesheet" type="text/css" media="screen" />';
 			$css = get_option('leaveanote_css');
 			if (!$css){
 				print '<style type="text/css" media="screen">li.post-its{';
@@ -167,7 +167,7 @@ This allows the plugin to use messages that existed before the plugin was instal
 // Create admin page
 
 		function ajax_request(){
-			wp_enqueue_script('admin-ajax', WP_PLUGIN_URL . '/leaveanote/js/admin-ajax.js', array('jquery'));
+			wp_enqueue_script('admin-ajax', WP_PLUGIN_URL . '/leave-a-note/js/admin-ajax.js', array('jquery'));
 		}
 		
 // Attach markup for on/off switch to edit post page
@@ -266,7 +266,7 @@ if (class_exists("LeaveaNoteVisualCommenting")) {
 	$leaveanote = new LeaveaNoteVisualCommenting();
 	if (isset($leaveanote)) {
 	// Actions
- 		add_action('activate_leaveanote/leaveanote.php', array(&$leaveanote, 'plugin_install'), 1);
+ 		add_action('activate_leave-a-note/leaveanote.php', array(&$leaveanote, 'plugin_install'), 1);
 		add_action('comment_post', array(&$leaveanote, 'save_comment'), 1);
 		add_action('wp_print_scripts', array(&$leaveanote, 'link_scripts'), 1);
 		add_action('admin_menu', array(&$leaveanote, 'leaveanote_admin'), 1);
