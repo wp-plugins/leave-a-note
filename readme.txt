@@ -4,7 +4,7 @@ Donate link: http://josephrogermoore.com/leaveanote
 Tags: comments, visual, notes, post-it
 Requires at least: 2.9.1
 Tested up to: 2.9.1
-Stable tag: ?.?
+Stable tag: trunk
 
 Leave-a-Note transforms your comments into post-it notes to drag and drop anywhere on the screen, saving the new position until it is moved again.
 
@@ -30,6 +30,10 @@ None. This is the first release.
 == Upgrade Notice ==
 
 None. This is the first release.
+
+== Screenshots ==
+
+None yet.
 
 == Configuration ==
 
@@ -68,26 +72,27 @@ In the 'Edit Post' page, there will now be a new box at the end, called 'Leave-a
 
 This plugin requires two hooks to work properly:
 
-<?php wp_head(); ?>
+`<?php wp_head(); ?>`
 
-<?php comment_class(); ?>
+`<?php comment_class(); ?>`
 
 **wp_head()**
-The code '<?php wp_head(); ?>' needs to be in the header file of your blog's theme. If it's not there, adding it should not negatively affect your blog in any way. Just make sure to insert it just before the '</head>' tag in the 'header.php' file. This hook tells Wordpress and the plugin where your page's '<head>' ends, so it can perform any needed action there. In the case of the plugin, it attaches the needed scripts to make it function properly.
+The code `<?php wp_head(); ?>` needs to be in the header file of your blog's theme. If it's not there, adding it should not negatively affect your blog in any way. Just make sure to insert it just before the `</head>` tag in the 'header.php' file. This hook tells Wordpress and the plugin where your page's `<head>` ends, so it can perform any needed action there. In the case of the plugin, it attaches the needed scripts to make it function properly.
 
 **comment_class()**
-The code '<?php comment_class(); ?>' is a function that outputs the correct class names for each comment. Most comments sections use this function, though you might not be aware of it. It's buried beneath two layers of code from the basic template level. Most templates use '<?php comments_template(); ?> to call the 'comments.php' file in your theme. Within this file should be the code '<?php wp_list_comments(); ?>' which calls the code that determines how each comment is marked up and prints them all out to the screen. By default, the '<?php wp_list_comments(); ?>' uses the '<?php comments_class(); ?>' function inside it. If you've never customized this function, it will be there. 
+The code `<?php comment_class(); ?>` is a function that outputs the correct class names for each comment. Most comments sections use this function, though you might not be aware of it. It's buried beneath two layers of code from the basic template level. Most templates use `<?php comments_template(); ?>` to call the 'comments.php' file in your theme. Within this file should be the code `<?php wp_list_comments(); ?>` which calls the code that determines how each comment is marked up and prints them all out to the screen. By default, the `<?php wp_list_comments(); ?>` uses the `<?php comments_class(); ?>` function inside it. If you've never customized this function, it will be there. 
 
 However, if you've customized your comment section, make sure that your markup fits these conditions:
 
-1. Each comment needs to be enclosed in an '<li>' tag. As your comment section is a list of comments, rules of good markup would require that anyway.
-2. Use '<?php comment_class(); ?>' inside the '<li>' tag.
+1. Each comment needs to be enclosed in an `<li>` tag. As your comment section is a list of comments, rules of good markup would require that anyway.
+2. Use `<?php comment_class(); ?>` inside the `<li>` tag.
 
 An example of number two might look like this:
-'<li <?php comment_class(); ?> id=some_code_or_id'>
+<code>
+<li <?php comment_class(); ?> id=some_code_or_id>
    <?php comment_text(); ?>
- </li>'
-
+</li>
+</code>
 == Troubleshooting ==
 
 One known issue is that due to a lack of fixed positioning in IE 6, this plugin may not function properly in that browser.
