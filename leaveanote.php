@@ -248,7 +248,7 @@ This allows the plugin to use messages that existed before the plugin was instal
    				echo 'style="position:absolute; top:'.$tpos.'; left:'.$lpos.';';
 				$value = get_option('leaveanote_showhide');
 				if ($value == 'show') {
-					echo ' "display:block;';
+					echo ' display:block;';
 				} elseif ($value == 'hide') {
 					echo ' display:none;';
 				}
